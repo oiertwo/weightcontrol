@@ -1,0 +1,17 @@
+import argparse
+
+def create_argparser():
+    parser = argparse.ArgumentParser(description="Wight yourself and do not let the scales be broken!")
+    #parser.add_argument('-addusr', '--adduser', action="store_true", dest='add_user')
+    #parser.add_argument('-chkusr', '--checkuser', action="store_true", dest='check_user')
+    return (parser)
+
+if __name__ == '__main__':
+    parser = create_argparser()
+
+    try:
+        args = parser.parse_args()
+    except argparse.ArgumentError as exc:
+        print('Error parsing arguments.')
+        parser.error(str(exc.message))
+        exit(-1)
